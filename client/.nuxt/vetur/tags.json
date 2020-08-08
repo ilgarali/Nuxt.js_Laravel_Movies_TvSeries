@@ -1,0 +1,50 @@
+{
+  "Logo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "LazyLogo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "Main": {
+    "description": "Auto imported from components/Main.vue"
+  },
+  "LazyMain": {
+    "description": "Auto imported from components/Main.vue"
+  },
+  "Movies": {
+    "description": "Auto imported from components/Movies.vue"
+  },
+  "LazyMovies": {
+    "description": "Auto imported from components/Movies.vue"
+  },
+  "Navbar": {
+    "description": "Auto imported from components/Navbar.vue"
+  },
+  "LazyNavbar": {
+    "description": "Auto imported from components/Navbar.vue"
+  },
+  "Shows": {
+    "description": "Auto imported from components/Shows.vue"
+  },
+  "LazyShows": {
+    "description": "Auto imported from components/Shows.vue"
+  },
+  "TvShow": {
+    "description": "Auto imported from components/TvShow.vue"
+  },
+  "LazyTvShow": {
+    "description": "Auto imported from components/TvShow.vue"
+  },
+  "Watch": {
+    "description": "Auto imported from components/Watch.vue"
+  },
+  "LazyWatch": {
+    "description": "Auto imported from components/Watch.vue"
+  },
+  "WatchShow": {
+    "description": "Auto imported from components/WatchShow.vue"
+  },
+  "LazyWatchShow": {
+    "description": "Auto imported from components/WatchShow.vue"
+  }
+}

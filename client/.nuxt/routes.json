@@ -1,0 +1,37 @@
+[
+  {
+    "name": "dizi",
+    "path": "/dizi",
+    "component": "/home/ilqar/Desktop/laravel/dizidi/client/pages/dizi/index.vue",
+    "chunkName": "pages/dizi/index",
+    "_name": "_3220c078"
+  },
+  {
+    "name": "dizi-single-episode-slug",
+    "path": "/dizi/single/episode/:slug?",
+    "component": "/home/ilqar/Desktop/laravel/dizidi/client/pages/dizi/single/episode/_slug.vue",
+    "chunkName": "pages/dizi/single/episode/_slug",
+    "_name": "_73fd5f8e"
+  },
+  {
+    "name": "dizi-single-slug",
+    "path": "/dizi/single/:slug?",
+    "component": "/home/ilqar/Desktop/laravel/dizidi/client/pages/dizi/single/_slug.vue",
+    "chunkName": "pages/dizi/single/_slug",
+    "_name": "_6a97264d"
+  },
+  {
+    "name": "film-slug",
+    "path": "/film/:slug?",
+    "component": "/home/ilqar/Desktop/laravel/dizidi/client/pages/film/_slug.vue",
+    "chunkName": "pages/film/_slug",
+    "_name": "_47fd1b80"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/ilqar/Desktop/laravel/dizidi/client/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_5b6448e1"
+  }
+]
