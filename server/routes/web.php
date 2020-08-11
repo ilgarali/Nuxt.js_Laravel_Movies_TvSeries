@@ -54,6 +54,7 @@ Route::namespace('Front')->group(function() {
 Route::namespace('Back')->prefix('admin')->middleware('is_admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin');
     Route::resource('/movie', 'MovieController');
+    Route::get('/moviebot', 'MovieBotController@movie');
 });
 
 
