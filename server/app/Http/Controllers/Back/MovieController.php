@@ -208,7 +208,10 @@ class MovieController extends Controller
     {
         $movie = Movie::findOrFail($id);
         $movie->categories()->detach();
-        $movie->sources()->delete();
+        $season = $movie->seasons()->delete();
+        $episode = $season->episodes()->delete();
+        $episode->resources()->delete();
+
         if (File::exists($movie->img)) {
             File::delete(public_path('movie/' . $movie->img));
         }

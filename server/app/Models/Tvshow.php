@@ -12,10 +12,10 @@ class Tvshow extends Model
         return $this->morphToMany(Category::class,'categoriable');
     }
 
-    public function resources()
-    {
-        return $this->morphMany(Resource::class,'resourceable');
-    }
+    // public function resources()
+    // {
+    //     return $this->morphMany(Resource::class,'resourceable');
+    // }
 
     public function seasons()
     {

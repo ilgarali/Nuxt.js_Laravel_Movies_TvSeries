@@ -21,21 +21,16 @@ class TvshowController extends Controller
 
     public function single($slug)
     {
-        $tvshow = Tvshow::where('slug',$slug)->first();
+        $tvshow = Tvshow::where('slug', $slug)->first();
         return new TvshowResource($tvshow);
     }
 
     public function singleepisode($episode)
     {
-    
-        
-      $episode = Episode::findOrFail($episode);
-      
 
-      
-      
-      return new EpisodeResource($episode);
+
+        $episode = Episode::findOrFail($episode);
+
+        return new EpisodeResource($episode);
     }
-
-    
 }

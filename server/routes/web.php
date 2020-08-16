@@ -54,87 +54,89 @@ Route::namespace('Front')->group(function() {
 Route::namespace('Back')->prefix('admin')->middleware('is_admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin');
     Route::resource('/movie', 'MovieController');
-    Route::get('/moviebot', 'MovieBotController@movie');
+    Route::resource('/tvshow', 'TvshowController');
+    Route::post('/seasonstore/{id}', 'SeasonController@store')->name('season.store');
+    Route::get('/{id}', 'SeasonController@season')->name('season.season');
 });
 
 
 
-Route::get('/tvshow', function () {
-    $movie = new Tvshow();
-    $movie->title = "New mOVIE";
-    $movie->slug = Str::slug('New mOVIE');
-    $movie->img = 'movie/the-old-guard.jpg';
-    $movie->country = 'USA';
-    $movie->imdb = '7';
-    $movie->duration = '200';
-    $movie->released = '2020';
-    $movie->description = "description";
+// Route::get('/tvshow', function () {
+//     $movie = new Tvshow();
+//     $movie->title = "New mOVIE";
+//     $movie->slug = Str::slug('New mOVIE');
+//     $movie->img = 'movie/the-old-guard.jpg';
+//     $movie->country = 'USA';
+//     $movie->imdb = '7';
+//     $movie->duration = '200';
+//     $movie->released = '2020';
+//     $movie->description = "description";
    
-    $movie->save();
+//     $movie->save();
     
    
-    $movie->categories()->attach(1);
+//     $movie->categories()->attach(1);
 
-    $season = $movie->seasons()->create(
-        [
-            'season'=>'season 1',
-            'slug'=>Str::slug('season 1')
-        ]
-    );
+//     $season = $movie->seasons()->create(
+//         [
+//             'season'=>'season 1',
+//             'slug'=>Str::slug('season 1')
+//         ]
+//     );
 
-    $episode = $season->episodes()->create([
-        'episode_name'=>'first episode',
-        'slug'=>Str::slug('first episode')
-    ]);
+//     $episode = $season->episodes()->create([
+//         'episode_name'=>'first episode',
+//         'slug'=>Str::slug('first episode')
+//     ]);
 
-    $episode->resources()->create([
-        'resource_name'=>'Odno Klasnik',
-        'language'=>'dublaj',
-        'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
-    ]);
-    $episode->resources()->create([
-        'resource_name'=>'Odno Klasnik',
-        'language'=>'dublaj',
-        'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
-    ]);
-
-
-    $episode = $season->episodes()->create([
-        'episode_name'=>'second episode',
-        'slug'=>Str::slug('second episode')
-    ]);
-
-    $episode->resources()->create([
-        'resource_name'=>'Odno Klasnik',
-        'language'=>'dublaj',
-        'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
-    ]);
-    $episode->resources()->create([
-        'resource_name'=>'Odno Klasnik',
-        'language'=>'dublaj',
-        'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
-    ]);
+//     $episode->resources()->create([
+//         'resource_name'=>'Odno Klasnik',
+//         'language'=>'dublaj',
+//         'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
+//     ]);
+//     $episode->resources()->create([
+//         'resource_name'=>'Odno Klasnik',
+//         'language'=>'dublaj',
+//         'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
+//     ]);
 
 
-    $episode = $season->episodes()->create([
-        'episode_name'=>'second episode',
-        'slug'=>Str::slug('fourth episode')
-    ]);
+//     $episode = $season->episodes()->create([
+//         'episode_name'=>'second episode',
+//         'slug'=>Str::slug('second episode')
+//     ]);
 
-    $episode->resources()->create([
-        'resource_name'=>'Odno Klasnik',
-        'language'=>'dublaj',
-        'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
-    ]);
-    $episode->resources()->create([
-        'resource_name'=>'Odno Klasnik',
-        'language'=>'altyazi',
-        'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
-    ]);
+//     $episode->resources()->create([
+//         'resource_name'=>'Odno Klasnik',
+//         'language'=>'dublaj',
+//         'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
+//     ]);
+//     $episode->resources()->create([
+//         'resource_name'=>'Odno Klasnik',
+//         'language'=>'dublaj',
+//         'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
+//     ]);
+
+
+//     $episode = $season->episodes()->create([
+//         'episode_name'=>'second episode',
+//         'slug'=>Str::slug('fourth episode')
+//     ]);
+
+//     $episode->resources()->create([
+//         'resource_name'=>'Odno Klasnik',
+//         'language'=>'dublaj',
+//         'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
+//     ]);
+//     $episode->resources()->create([
+//         'resource_name'=>'Odno Klasnik',
+//         'language'=>'altyazi',
+//         'sources'=>'https://www.youtube.com/embed/SD2I1dBsiM4'
+//     ]);
 
 
     
    
     
-     return view('welcome');   
-});
+//      return view('welcome');   
+// });

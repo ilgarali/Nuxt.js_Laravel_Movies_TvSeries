@@ -16,7 +16,7 @@
         <div class="product-status-wrap">
             <h4>Library List</h4>
             <div class="add-product">
-            <a href="{{route('movie.create')}}">Add Movie</a>
+            <a href="{{route('tvshow.create')}}">Add Library</a>
             </div>
             <div class="asset-inner">
                 <table>
@@ -33,18 +33,18 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($movies as $movie)
+                        @foreach ($tvshows as $tvshow)
                             
                         
                     <tr>
-                    <td><img src="{{asset($movie->img)}}" alt=""></td>
-                    <td>{{$movie->title}}</td>
+                    <td><img src="{{asset($tvshow->img)}}" alt=""></td>
+                    <td>{{$tvshow->title}}</td>
                   
                         
                    
                     <td>
                         <ul>
-                        @foreach ($movie->categories as $category)
+                        @foreach ($tvshow->categories as $category)
                        
                             <li>
                                 {{$category->category}}
@@ -55,25 +55,28 @@
                     </td>
                
 
-                        <td>{{Str::words($movie->description,5)}}</td>
-                        <td> @foreach ($movie->sources as $source)
+                        <td>{{Str::words($tvshow->description,5)}}</td>
+                        <td> @foreach ($tvshow->seasons as $season)
                        
                             <li>
-                                {{$source->language}}
+                                {{$season->season}} - <a href="">Add Episode</a>
+
                             </li>
                        
                         @endforeach
                     </ul></td>
                        
                         <td>
-        <a href="{{route('movie.edit',$movie->id)}}" data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-          <form action="{{route('movie.destroy',$movie->id)}}" method="post">
+        <a href="{{route('tvshow.edit',$tvshow->id)}}" data-toggle="tooltip" 
+            title="" class="pd-setting-ed" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+          <form action="{{route('tvshow.destroy',$tvshow->id)}}" method="post">
             @csrf
             @method('DELETE')
             <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Trash">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
             </button>
           </form>
+        <a href="{{route('season.season',$tvshow->id)}}">Add Season</a>
         </td>
                   
                     </tr>
@@ -83,7 +86,7 @@
             </div>
             <div class="custom-pagination">
                 <ul class="pagination">
-                 {{ $movies->links() }}
+                     {{ $tvshows->links() }}
                 </ul>
             </div>
         </div>
