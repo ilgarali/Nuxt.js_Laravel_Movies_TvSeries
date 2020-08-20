@@ -18,7 +18,7 @@
 @endif
 <div class="review-content-section">
 <div id="dropzone1" class="pro-ad addcoursepro">
-<form action="{{route('season.store',$tvshow->id)}}" enctype="multipart/form-data" method="POST" class="dropzone dropzone-custom needsclick addcourse dz-clickable" id="demo1-upload" novalidate="novalidate">
+<form action="{{route('season.storeSeason',$tvshow->id)}}" enctype="multipart/form-data" method="POST" class="dropzone dropzone-custom needsclick addcourse dz-clickable" id="demo1-upload" novalidate="novalidate">
    @csrf
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

@@ -16,59 +16,63 @@
         <div class="product-status-wrap">
             <h4>Library List</h4>
             <div class="add-product">
-            <a href="{{route('season.create')}}">Add Library</a>
+           
             </div>
             <div class="asset-inner">
                 <table>
                     <thead>
                         <tr>
                       
-                            <th>Image</th>
-                            <th>Title</th>
-                            <th>Category</th>
-                            <th>Post Description</th>
-                            <th>Sources</th>
+                            <th>Tvshow</th>
+                            <th>Season</th>
+                            <th>Episodes</th>
+                          
                             
                         </tr>
                     </thead>
                     <tbody>
 
-                        @foreach ($seasons as $season)
+                     
                             
                         
                     <tr>
-                
-                    <td>{{$season->season}}</td>
+                    <td>{{$season->tvshow->title}} 
+                  </td>
+                <td>{{$season->season}} <a title="Edit" class="btn btn-info" href="{{route('season.edit',$season->id)}}"><i class="fas fa-pen-fancy"></i></a> 
+                <form action="{{route('season.destroy',$season->id)}}" method="post" style="display: inline-block">
+                    @csrf
+                    @method('DELETE')
+                            <button title="delete" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>        
+                        </form>
+                        <a title="Add New Episode"  class="btn btn-primary" href=""><i class="far fa-plus-square"></i></a>
+                     </td>
+              
+                    <td> 
+                        <ul>
+                            @foreach ($season->episodes as $episode)
+                            <li>{{$episode->episode_name}}
+                            <a title="edit" class="btn btn-info" href="{{route('episode.edit',$episode->id)}}"><i class="fas fa-pen-fancy"></i></a> 
+                            <form action="{{route('episode.destroy',$episode->id)}}" method="post" style="display: inline-block">
+                                @csrf    
+                                @method('DELETE')
+                                    <button title="delete" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>        
+                                </form>
+                            </li>   
+                            @endforeach 
+                        </ul>    
+                    </td>    
                   
-                        
-                   
                     
-               
-
-                       
+                  
                 
-                       
-                        <td>
-        <a href="{{route('season.edit',$season->id)}}" data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-          <form action="{{route('season.destroy',$season->id)}}" method="post">
-            @csrf
-            @method('DELETE')
-            <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Trash">
-                <i class="fa fa-trash-o" aria-hidden="true"></i>
-            </button>
-          </form>
-        </td>
+   
                   
                     </tr>
-                    @endforeach
+                  
                    
                 </tbody></table>
             </div>
-            <div class="custom-pagination">
-                <ul class="pagination">
-                     {{ $seasons->links() }}
-                </ul>
-            </div>
+           
         </div>
     </div>
 

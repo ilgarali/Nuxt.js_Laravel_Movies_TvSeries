@@ -7,7 +7,9 @@
 <title>Dashboard V.2 | Kiaalap - Kiaalap Admin Template</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/dd7b1650f7.js" crossorigin="anonymous"></script>
 <!-- favicon
+    
 ============================================ -->
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 <!-- Google Fonts

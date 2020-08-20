@@ -9,7 +9,7 @@
       </b-img>
     </div>
     <div class="seasons" v-else>
-      <div class="text-white">
+      <!-- <div class="text-white">
                 <ul>
                   <li v-for="(season, index) in single.seasons" :key="index">
                       {{season[0].episodes[0].episode_name}}
@@ -18,7 +18,7 @@
                       </h5>
                   </li>
               </ul> 
-      </div>
+      </div> -->
       <b-container>
       <div class="links d-flex mt-5">
         <div class="main mx-2 active">

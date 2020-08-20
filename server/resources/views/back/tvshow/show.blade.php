@@ -27,7 +27,7 @@
                             <th>Title</th>
                             <th>Category</th>
                             <th>Post Description</th>
-                            <th>Sources</th>
+                            <th>Season</th>
                             
                         </tr>
                     </thead>
@@ -58,10 +58,12 @@
                         <td>{{Str::words($tvshow->description,5)}}</td>
                         <td> @foreach ($tvshow->seasons as $season)
                        
+                           <ul>
                             <li>
-                                {{$season->season}} - <a href="">Add Episode</a>
-
-                            </li>
+                                {{$season->season}} - <a href="{{route('season.show',$season->id)}}">Go Season</a>
+                               
+                                </li>
+                           </ul>
                        
                         @endforeach
                     </ul></td>
@@ -69,14 +71,17 @@
                         <td>
         <a href="{{route('tvshow.edit',$tvshow->id)}}" data-toggle="tooltip" 
             title="" class="pd-setting-ed" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-          <form action="{{route('tvshow.destroy',$tvshow->id)}}" method="post">
+          <form class="my-2" action="{{route('tvshow.destroy',$tvshow->id)}}" method="post">
             @csrf
             @method('DELETE')
             <button data-toggle="tooltip" title="" class="pd-setting-ed" data-original-title="Trash">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
             </button>
           </form>
-        <a href="{{route('season.season',$tvshow->id)}}">Add Season</a>
+          <a href="{{route('season.createSeason',$season->tvshow->id)}}" 
+            title="Add New Season" class="btn btn-primary my-2">
+            <i class="far fa-plus-square"></i>
+        </a> 
         </td>
                   
                     </tr>

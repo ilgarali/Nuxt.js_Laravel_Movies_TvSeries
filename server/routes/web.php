@@ -55,8 +55,15 @@ Route::namespace('Back')->prefix('admin')->middleware('is_admin')->group(functio
     Route::get('/', 'AdminController@index')->name('admin');
     Route::resource('/movie', 'MovieController');
     Route::resource('/tvshow', 'TvshowController');
-    Route::post('/seasonstore/{id}', 'SeasonController@store')->name('season.store');
-    Route::get('/{id}', 'SeasonController@season')->name('season.season');
+    Route::resource('/season', 'SeasonController');
+    Route::get('/createseason/{id}', 'SeasonController@createSeason')->name('season.createSeason');
+    Route::post('/storeseason/{id}', 'SeasonController@storeSeason')->name('season.storeSeason');
+
+    Route::get('/episodeedit/{id}', 'EpisodeController@edit')->name('episode.edit');
+    Route::put('/episodupdate/{id}', 'EpisodeController@update')->name('episode.update');
+    Route::get('/episode/{id}', 'EpisodeController@episode')->name('episode.new');
+    Route::post('/episodestore/{id}', 'EpisodeController@store')->name('episode.store');
+    Route::delete('/episodedelete/{id}', 'EpisodeController@destroy')->name('episode.destroy');
 });
 
 

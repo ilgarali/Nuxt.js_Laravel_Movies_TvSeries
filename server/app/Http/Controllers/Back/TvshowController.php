@@ -118,7 +118,10 @@ class TvshowController extends Controller
     {
         $tvshow =Tvshow::findOrFail($id); 
         $tvshow->categories->detach();
-        $tvshow->seasons->delete();
+        $seasons =  $tvshow->seasons->delete();
+
+        $episodes = $seasons->episodes->delete();
+        $episodes->resources->delete();
 
         if (File::exists($tvshow->img)) {
             File::delete(public_path('tvshow/'.$tvshow->img));
