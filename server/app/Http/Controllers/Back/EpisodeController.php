@@ -10,6 +10,12 @@ use Illuminate\Support\Str;
 
 class EpisodeController extends Controller
 {
+
+    public function __construct()
+    {
+     return $this->middleware('auth');   
+    }
+
     public function episode($id)
     {
         $season = Season::findOrFail($id);
@@ -111,7 +117,7 @@ class EpisodeController extends Controller
     {
         $episode = Episode::findOrFail($id);
         $episode->resources()->delete();
-        dd($episode->resources());
+       
         $episode->delete();
         return redirect()->back()->with('success', 'You have deleted Episode successfully');
     }

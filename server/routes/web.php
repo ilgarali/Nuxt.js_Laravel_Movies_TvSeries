@@ -56,6 +56,7 @@ Route::namespace('Back')->prefix('admin')->middleware('is_admin')->group(functio
     Route::resource('/movie', 'MovieController');
     Route::resource('/tvshow', 'TvshowController');
     Route::resource('/season', 'SeasonController');
+    Route::resource('/category', 'CategoryController');
     Route::get('/createseason/{id}', 'SeasonController@createSeason')->name('season.createSeason');
     Route::post('/storeseason/{id}', 'SeasonController@storeSeason')->name('season.storeSeason');
 

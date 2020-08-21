@@ -72,13 +72,11 @@
         </ul>
     </li>
     <li>
-        <a class="has-arrow" href="all-students.html" aria-expanded="false">
+    <a class="has-arrow" href="{{route('category.index')}}" aria-expanded="false">
             <span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Categories</span></a>
         <ul class="submenu-angle" aria-expanded="false">
-            <li><a title="All Students" href="all-students.html"><span class="mini-sub-pro">All Categories</span></a></li>
-            <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Add Categories</span></a></li>
-            <li><a title="Edit Students" href="edit-student.html"><span class="mini-sub-pro">Edit Categories</span></a></li>
-            <li><a title="Students Profile" href="student-profile.html"><span class="mini-sub-pro">Student Categories</span></a></li>
+            <li><a title="All Students" href="{{route('category.index')}}"><span class="mini-sub-pro">All Categories</span></a></li>
+          
         </ul>
     </li>
     <li>

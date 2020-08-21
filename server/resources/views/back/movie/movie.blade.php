@@ -14,7 +14,7 @@
             </div>
         @endif
         <div class="product-status-wrap">
-            <h4>Library List</h4>
+            <h4>Movies</h4>
             <div class="add-product">
             <a href="{{route('movie.create')}}">Add Movie</a>
             </div>

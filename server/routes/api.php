@@ -25,7 +25,8 @@ Route::namespace('Api')->group(function () {
     
     Route::get('/movie/{slug}', 'MovieController@single');
     Route::get('/tvshow', 'TvshowController@index');
-
+    Route::get('/categorymovies', 'CategoryController@movies');
+    Route::get('/categorytvshows', 'CategoryController@tvshows');
     Route::get('/tvshow/{slug}', 'TvshowController@single');
     Route::get('/tvshow/episode/{episode_slug}', 'TvshowController@singleepisode');
  

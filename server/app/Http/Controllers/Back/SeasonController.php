@@ -10,6 +10,12 @@ use Illuminate\Support\Str;
 
 class SeasonController extends Controller
 {
+
+    public function __construct()
+    {
+     return $this->middleware('auth');   
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,11 +31,10 @@ class SeasonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        dd($id);
-        $tvshow = Tvshow::findOrFail($id);
-        return view('back.season.addseason',compact('tvshow'));
+        
+      
     }
 
     /**
@@ -90,6 +95,12 @@ class SeasonController extends Controller
     public function destroy($id)
     {
         $season = Season::findOrFail($id);
+        foreach ($season->episodes as $episode) {
+            $episode->resources()->delete();
+        }
+        $episodes = $season->episodes()->delete();
+        
+
         $season->delete();
         return redirect()->route('tvshow.index')->with('success','You have deleted season successfully');
     }

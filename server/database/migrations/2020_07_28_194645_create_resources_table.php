@@ -20,6 +20,7 @@ class CreateResourcesTable extends Migration
             $table->string('resource_name');
             $table->string('sources');
             $table->timestamps();
+
         });
     }
 

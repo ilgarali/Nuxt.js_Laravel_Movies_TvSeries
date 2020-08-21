@@ -1,6 +1,9 @@
 <template>
+
   <b-container>
+  
     <b-row no-gutters>
+    
       <b-col v-for="(movie, index) in datas" :key="index" cols="md-3 col-12 col-sm-6 my-2">
         <div class="main-content ml-3">
           <div class="text-white">
@@ -61,7 +64,11 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar.vue'
 export default {
+  component:{
+    Navbar
+  },
   props: ["datas"],
   data() {
     return {

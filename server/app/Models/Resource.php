@@ -5,8 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Resource extends Model
-{    protected $guarded = [];
+{    
+
+    protected $guarded = [];
+  
     public function movie()
+    {
+        return $this->morphTo();
+    }
+
+    public function episode()
     {
         return $this->morphTo();
     }

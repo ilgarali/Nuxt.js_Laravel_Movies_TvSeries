@@ -15,6 +15,7 @@ class TvshowController extends Controller
     public function __construct() {
         $categories = Category::get();
         view()->share('categories', $categories);
+        return $this->middleware('auth');
     }
 
 
@@ -117,11 +118,20 @@ class TvshowController extends Controller
     public function destroy($id)
     {
         $tvshow =Tvshow::findOrFail($id); 
-        $tvshow->categories->detach();
-        $seasons =  $tvshow->seasons->delete();
+        $tvshow->categories()->detach();
 
-        $episodes = $seasons->episodes->delete();
-        $episodes->resources->delete();
+        foreach ($tvshow->seasons as $season) {
+            foreach ($season->episodes as $episode) {
+                $episode->resources()->delete();
+            }
+            
+        }
+        $tvshow->seasons()->delete();
+   
+        
+      
+      
+   
 
         if (File::exists($tvshow->img)) {
             File::delete(public_path('tvshow/'.$tvshow->img));

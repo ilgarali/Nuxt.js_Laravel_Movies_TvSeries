@@ -19,6 +19,8 @@ class CreateEpisodesTable extends Migration
             $table->string('episode_name');
             $table->string('slug');
             $table->timestamps();
+
+            $table->foreign('season_id')->references('id')->on('seasons')->onDelete('cascade');
         });
     }
 

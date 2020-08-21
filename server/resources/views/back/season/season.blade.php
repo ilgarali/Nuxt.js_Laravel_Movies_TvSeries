@@ -44,8 +44,9 @@
                     @method('DELETE')
                             <button title="delete" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>        
                         </form>
-                        <a title="Add New Episode"  class="btn btn-primary" href=""><i class="far fa-plus-square"></i></a>
-                     </td>
+                        <a title="Add New Episode"  class="btn btn-primary" href="{{route('episode.new',$season->id)}}"><i class="far fa-plus-square"></i></a>
+                  
+               </td>
               
                     <td> 
                         <ul>
@@ -57,8 +58,12 @@
                                 @method('DELETE')
                                     <button title="delete" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>        
                                 </form>
+                             
                             </li>   
+                          
                             @endforeach 
+
+                         
                         </ul>    
                     </td>    
                   
