@@ -1,7 +1,8 @@
 export const state = () => ({
     movies: '',
     links: '',
-    single: ''
+    single: '',
+    categories:''
 
 
 })
@@ -16,7 +17,9 @@ export const getters = {
     single(state) {
         return state.single
     },
-
+    categories(state) {
+        return state.categories
+    }
 
 }
 
@@ -34,6 +37,10 @@ export const mutations = {
 
 
         state.single = single
+    },
+    SET_CATEGORIES(state,categories) {
+
+        state.categories = categories.data
     }
 }
 
@@ -70,6 +77,14 @@ export const actions = {
         }
 
 
+    },
+    async getCategories({commit}) {
+        try {
+            const categories = await this.$axios.get(`categories`);
+            commit("SET_CATEGORIES",categories.data)
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 

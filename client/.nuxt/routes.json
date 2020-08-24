@@ -33,5 +33,12 @@
     "component": "/home/ilqar/Desktop/laravel/dizidi/client/pages/index.vue",
     "chunkName": "pages/index",
     "_name": "_5b6448e1"
+  },
+  {
+    "name": "slug",
+    "path": "/:slug",
+    "component": "/home/ilqar/Desktop/laravel/dizidi/client/pages/_slug/index.vue",
+    "chunkName": "pages/_slug/index",
+    "_name": "_f40b5148"
   }
 ]

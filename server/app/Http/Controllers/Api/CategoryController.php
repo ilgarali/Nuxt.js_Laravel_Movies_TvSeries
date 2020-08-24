@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function index()
+    {
+        $categories = Category::paginate(12);
+        return CategoryResource::collection($categories);
+    }
+
     public function movies()
     {
         $categories = Category::paginate(12);

@@ -8,6 +8,7 @@ const _73fd5f8e = () => interopDefault(import('../pages/dizi/single/episode/_slu
 const _6a97264d = () => interopDefault(import('../pages/dizi/single/_slug.vue' /* webpackChunkName: "pages/dizi/single/_slug" */))
 const _47fd1b80 = () => interopDefault(import('../pages/film/_slug.vue' /* webpackChunkName: "pages/film/_slug" */))
 const _5b6448e1 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _f40b5148 = () => interopDefault(import('../pages/_slug/index.vue' /* webpackChunkName: "pages/_slug/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -45,6 +46,10 @@ export const routerOptions = {
     path: "/",
     component: _5b6448e1,
     name: "index"
+  }, {
+    path: "/:slug",
+    component: _f40b5148,
+    name: "slug"
   }],
 
   fallback: false

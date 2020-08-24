@@ -18,66 +18,13 @@
           </div>
           <div class="categories">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
+              <li class="nav-item"  v-for="(category, index) in categories" :key="index" style="z-index:1000">
                 <div class="d-flex justify-content-between text-white p-2">
                   <i class="fas fa-house-user ml-2 align-self-center mr-3"></i>
-                  <nuxt-link class="align-self-center link text-white" to="/family">Family</nuxt-link>
+                  <nuxt-link class="align-self-center link text-white" :to="category.slug">{{category.category}}</nuxt-link>
                 </div>
               </li>
-              <li class="nav-item">
-                <div class="d-flex justify-content-between text-white p-2">
-                  <i class="fas fa-bolt align-self-center mr-3 ml-2"></i>
-                  <nuxt-link class="align-self-center link text-white" to="/action">Action</nuxt-link>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="d-flex justify-content-between text-white p-2">
-                  <i class="fas fa-child align-self-center mr-3 ml-2"></i>
-
-                  <nuxt-link class="align-self-center link text-white" to="/animation">Animation</nuxt-link>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="d-flex justify-content-between text-white p-2">
-                  <i class="fas fa-child align-self-center mr-3 ml-2"></i>
-
-                  <nuxt-link class="align-self-center link text-white" to="/dram">Dram</nuxt-link>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="d-flex justify-content-between text-white p-2">
-                  <i class="fas fa-child align-self-center mr-3 ml-2"></i>
-
-                  <nuxt-link class="align-self-center link text-white" to="/science-fiction">Science Fiction</nuxt-link>
-                </div>
-              </li>
-                <li class="nav-item">
-                <div class="d-flex justify-content-between text-white p-2">
-                  <i class="fas fa-bolt align-self-center mr-3 ml-2"></i>
-                  <nuxt-link class="align-self-center link text-white" to="/action">Action</nuxt-link>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="d-flex justify-content-between text-white p-2">
-                  <i class="fas fa-child align-self-center mr-3 ml-2"></i>
-
-                  <nuxt-link class="align-self-center link text-white" to="/animation">Animation</nuxt-link>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="d-flex justify-content-between text-white p-2">
-                  <i class="fas fa-child align-self-center mr-3 ml-2"></i>
-
-                  <nuxt-link class="align-self-center link text-white" to="/dram">Dram</nuxt-link>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="d-flex justify-content-between text-white p-2">
-                  <i class="fas fa-child align-self-center mr-3 ml-2"></i>
-
-                  <nuxt-link class="align-self-center link text-white" to="/science-fiction">Science Fiction</nuxt-link>
-                </div>
-              </li>
+          
             </ul>
           </div>
         </div>
@@ -87,7 +34,24 @@
 </template>
 
 <script>
-export default {};
+import {mapActions,mapGetters} from 'vuex'
+export default {
+  created() {
+    this.getCategories()
+  },
+  methods: {
+    ...mapActions({
+      getCategories:"movie/getCategories"
+    })
+  },
+  computed: {
+    ...mapGetters({
+      categories:"movie/categories"
+    })
+  },
+};
+
+
 </script>
 
 <style scoped>
